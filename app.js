@@ -19,7 +19,7 @@ function toast(t){$("toast").textContent=t;$("toast").classList.add("show");setT
 function go(id){document.querySelectorAll(".view").forEach(x=>x.classList.add("hidden"));$(id).classList.remove("hidden");if(id==="shop")renderShop();if(id==="cart")renderCart();if(id==="checkout")renderCheckout();if(id==="account")renderAccount();if(id==="admin")renderAdmin();scrollTo(0,0)}
 function saveCart(){localStorage.setItem("after8-cart",JSON.stringify(cart));updateCount()}
 function updateCount(){$("count").textContent=cart.reduce((s,x)=>s+x.qty,0)}
-function productCard(p){return `<article class="card" onclick="showProduct('${p.id}')"><div class="pic"><img src="${p.image||"assets/product-tee.png"}" alt="${p.name}"></div><div class="meta"><span>${p.name}</span><span>${money(p.price)}</span></div></article>`}
+function productCard(p){return `<article class="card" onclick="showProduct('${p.id}')"><div class="pic"><img src="${p.image||"product-tee.png"}" alt="${p.name}"></div><div class="meta"><span>${p.name}</span><span>${money(p.price)}</span></div></article>`}
 async function loadProducts(){
   const {data,error}=await sb.from("products").select("*").eq("published",true).order("created_at",{ascending:false});
   products=(!error&&data&&data.length)?data:demoProducts;

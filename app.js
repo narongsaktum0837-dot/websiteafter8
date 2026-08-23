@@ -7,9 +7,9 @@ const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
 
 const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 const demoProducts = [
-  {id:"demo-1",name:"A8 STRIPE POLO",price:1890,category:"Polos",sizes:["S","M","L","XL"],image:"assets/product-polo.png",featured:true},
-  {id:"demo-2",name:"AFTER8 PREMIUM TEE / WHITE",price:1290,category:"T-Shirts",sizes:["S","M","L","XL"],image:"assets/product-tee.png",featured:true},
-  {id:"demo-3",name:"AFTER8 / 001 SUNRISE DENIM",price:3990,category:"Jackets",sizes:["S","M","L","XL"],image:"assets/product-jacket.png",featured:true}
+  {id:"demo-1",name:"A8 STRIPE POLO",price:1890,category:"Polos",sizes:["S","M","L","XL"],image:"product-polo.png",featured:true},
+  {id:"demo-2",name:"AFTER8 PREMIUM TEE / WHITE",price:1290,category:"T-Shirts",sizes:["S","M","L","XL"],image:"product-tee.png",featured:true},
+  {id:"demo-3",name:"AFTER8 / 001 SUNRISE DENIM",price:3990,category:"Jackets",sizes:["S","M","L","XL"],image:"product-jacket.png",featured:true}
 ];
 let products=[], cart=JSON.parse(localStorage.getItem("after8-cart")||"[]"), selectedProduct=null, selectedSize="M", session=null;
 

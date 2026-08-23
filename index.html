@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AFTER8 — Official Store</title>
+  <meta name="description" content="AFTER8 official clothing store. Quietly bold.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap navrow">
+    <a class="brand" href="#home">AFTER8<sup>™</sup><span>COLLECTION 01</span></a>
+    <nav>
+      <a href="#home">Home</a><a href="#shop">Shop</a><a href="#contact">Contact</a><a href="#account">Account</a>
+    </nav>
+    <div class="actions"><button id="loginBtn">Login</button><button id="cartBtn">Bag <span id="count">0</span></button></div>
+  </div>
+</header>
+
+<main>
+<section id="home" class="view">
+  <div class="hero wrap">
+    <div class="ey">EST. AFTER 8</div>
+    <h1>QUIETLY<br>BOLD.</h1>
+    <p>Less noise. Better cuts. AFTER8 is a different start.</p>
+    <a class="btn" href="#shop">Shop the collection</a>
+  </div>
+  <section class="section wrap">
+    <div class="head"><div><div class="ey">AFTER8</div><h2>LATEST DROP</h2></div><a href="#shop">VIEW ALL →</a></div>
+    <div id="latest" class="grid"></div>
+  </section>
+  <section class="section wrap">
+    <div class="head"><div><div class="ey">AFTER8</div><h2>THE BEGINNING</h2></div></div>
+    <div class="story"><div><h3>Simple moments.<br>After 8.</h3><p>เสื้อผ้าที่เรียบ แต่ใส่ใจรายละเอียดทุกจุด จากแนวคิดของ AFTER8</p></div><div class="mark">A8</div></div>
+  </section>
+</section>
+
+<section id="shop" class="view hidden wrap section">
+  <div class="head"><div><div class="ey">AFTER8</div><h2>SHOP ALL</h2></div><span id="resultCount"></span></div>
+  <div class="filters"><input id="search" placeholder="ค้นหาสินค้า / Search..."><select id="cat"><option value="">All categories</option></select><select id="size"><option value="">All sizes</option></select></div>
+  <div id="products" class="grid"></div>
+</section>
+
+<section id="detail" class="view hidden wrap section"><div id="detailBox"></div></section>
+
+<section id="cart" class="view hidden wrap section">
+  <div class="head"><div><div class="ey">AFTER8</div><h2>YOUR BAG</h2></div></div>
+  <div id="cartBox"></div>
+</section>
+
+<section id="checkout" class="view hidden wrap section">
+  <div class="head"><div><div class="ey">AFTER8</div><h2>CHECKOUT</h2></div></div>
+  <div id="checkoutBox"></div>
+</section>
+
+<section id="account" class="view hidden wrap section">
+  <div class="account"><div><div class="ey">AFTER8</div><h2>ACCOUNT</h2><p id="accountStatus">ยังไม่ได้เข้าสู่ระบบ</p></div>
+  <form id="authForm" class="form"><input id="email" type="email" required placeholder="Email"><input id="password" type="password" required minlength="6" placeholder="Password"><div class="twocol"><button class="btn" type="submit">Sign in</button><button class="btn light" type="button" id="signupBtn">Create account</button></div><button class="textbtn" type="button" id="logoutBtn">Logout</button></form></div>
+</section>
+
+<section id="contact" class="view hidden wrap section">
+  <div class="story"><div><div class="ey">AFTER8</div><h2>CONTACT</h2><p>สำหรับสินค้า ออเดอร์ หรือ collaboration ติดต่อ AFTER8</p></div><div class="contactcard">EMAIL<br><b>hello@after8wear.com</b><br><br>INSTAGRAM<br><b>@after8</b></div></div>
+</section>
+
+<section id="admin" class="view hidden wrap section">
+  <div class="head"><div><div class="ey">A8 ADMIN</div><h2>DASHBOARD</h2></div></div>
+  <div id="adminBox"></div>
+</section>
+</main>
+
+<footer class="wrap">AFTER8™. ALL RIGHTS RESERVED.</footer>
+<div id="toast" class="toast"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="app.js"></script>
+</body>
+</html>

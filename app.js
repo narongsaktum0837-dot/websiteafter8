@@ -2,8 +2,8 @@
 // 1) Put your Supabase URL and anon key below.
 // 2) Run supabase-schema.sql in Supabase SQL Editor.
 // 3) Create an admin account, then set its profile role to "admin".
-const SUPABASE_URL = "YOUR_SUPABASE_URL";
-const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
+const SUPABASE_URL = "https://ncykqglaztgutpiphogx.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_rtR-hYrxgKhg1EG2qWRsSQ_eIeZddNg";
 
 const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 const demoProducts = [

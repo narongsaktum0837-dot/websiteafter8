@@ -19,7 +19,7 @@ function toast(t){$("toast").textContent=t;$("toast").classList.add("show");setT
 function go(id){document.querySelectorAll(".view").forEach(x=>x.classList.add("hidden"));$(id).classList.remove("hidden");if(id==="shop")renderShop();if(id==="cart")renderCart();if(id==="checkout")renderCheckout();if(id==="account")renderAccount();if(id==="admin")renderAdmin();scrollTo(0,0)}
 function saveCart(){localStorage.setItem("after8-cart",JSON.stringify(cart));updateCount()}
 function updateCount(){$("count").textContent=cart.reduce((s,x)=>s+x.qty,0)}
-function productCard(p){return `<article class="card" onclick="showProduct('${p.id}')"><div class="pic"><img src="${p.image||"product-tee.png"}" alt="${p.name}"></div><div class="meta"><span>${p.name}</span><span>${money(p.price)}</span></div></article>`}
+function productCard(p){return `<article class="card" onclick="showProduct('${p.id}')"><div class="pic"><img src="${(p.image ? p.image.replace(/^assets\//,"") : "product-tee.png")}" alt="${p.name}"></div><div class="meta"><span>${p.name}</span><span>${money(p.price)}</span></div></article>`}
 async function loadProducts(){
   const {data,error}=await sb.from("products").select("*").eq("published",true).order("created_at",{ascending:false});
   products=(!error&&data&&data.length)?data:demoProducts;
@@ -40,7 +40,7 @@ function renderShop(){
 function showProduct(id){
   selectedProduct=products.find(p=>p.id===id); if(!selectedProduct)return;
   selectedSize=(selectedProduct.sizes||["M"])[0];
-  $("detailBox").innerHTML=`<div class="detail"><div class="gallery"><div class="pic"><img src="${selectedProduct.image||"assets/product-tee.png"}"></div><div class="pic"><img src="${selectedProduct.image||"assets/product-tee.png"}"></div></div><div><div class="ey">${selectedProduct.category||"AFTER8"}</div><h1>${selectedProduct.name}</h1><div class="price">${money(selectedProduct.price)}</div><p class="muted">${selectedProduct.description||"Premium AFTER8 garment. Relaxed fit with carefully considered details."}</p><div class="ey">SIZE</div><div class="opts">${(selectedProduct.sizes||["S","M","L","XL"]).map((s,i)=>`<button class="opt ${i===0?"active":""}" onclick="pickSize(this,'${s}')">${s}</button>`).join("")}</div><div class="stack"><button class="btn" onclick="addToCart()">Add to bag</button><button class="btn light" onclick="buyNow()">Buy now</button></div></div></div>`;
+  $("detailBox").innerHTML=`<div class="detail"><div class="gallery"><div class="pic"><img src="${selectedProduct.image ? selectedProduct.image.replace(/^assets\//,"") : "product-tee.png"}"></div><div class="pic"><img src="${selectedProduct.image||"assets/product-tee.png"}"></div></div><div><div class="ey">${selectedProduct.category||"AFTER8"}</div><h1>${selectedProduct.name}</h1><div class="price">${money(selectedProduct.price)}</div><p class="muted">${selectedProduct.description||"Premium AFTER8 garment. Relaxed fit with carefully considered details."}</p><div class="ey">SIZE</div><div class="opts">${(selectedProduct.sizes||["S","M","L","XL"]).map((s,i)=>`<button class="opt ${i===0?"active":""}" onclick="pickSize(this,'${s}')">${s}</button>`).join("")}</div><div class="stack"><button class="btn" onclick="addToCart()">Add to bag</button><button class="btn light" onclick="buyNow()">Buy now</button></div></div></div>`;
   go("detail");
 }
 function pickSize(el,s){document.querySelectorAll(".opt").forEach(x=>x.classList.remove("active"));el.classList.add("active");selectedSize=s}
